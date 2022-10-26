@@ -10,7 +10,9 @@
             </div>
         @endif
             <h1 class="display-4">Project</h1>
+            @auth
             <a class="btn btn-primary" href="/project/create" role="button">Add</a>
+            @endauth
         </div>
     </div>
     <br>
@@ -22,7 +24,9 @@
                             <div class="card-body">
                                 <p class="card-title">{{$pro->judul}}</p>
                                 <p class="card-text">{{$pro->deskripsi}}</p>
+                                @auth
                                 <a class="btn btn-primary" href="/project/{{$pro->id}}" role="button">Show</a>
+                                @endauth
                             </div>
                     </div>
                     <br>

@@ -12,7 +12,6 @@
     </head>
     <body>
         @include('layouts.header')
-        @include('layouts.sidebar')
         <div class="jumbotron jumbotron-fluid">
         <div class="container">
             

@@ -34,11 +34,6 @@
             Project
           </a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-          <a class="nav-link" href="{{ url('/posts') }}">
-            Blog
-          </a>
-        </li>
       </ul>
 
       <!-- SEARCH FORM -->

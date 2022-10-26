@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +30,12 @@ Route::resource('about',
 
 Route::get('/project/hapus/{id}', 
 [App\Http\Controllers\ProjectController::class, 'hapus']);
+
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+
+Auth::routes([
+    'reset' => false,
+   ]);
+
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
