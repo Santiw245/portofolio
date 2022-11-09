@@ -6,6 +6,7 @@
             <h1>{{$project->judul}}</h1>
             <small>Tanggal : {{$project->created_at}}</small>
             <p>{{$project->deskripsi}}</p>
+            <img src="{{asset('storage/posts_image/'.$project->picture)}}" height="500" width="500">
             <a href="/project/{{$project->id}}/edit" class="btn btn-primary">Edit</a>
 
             <form action="{{ route('project.destroy', $project->id) }}" method="POST">

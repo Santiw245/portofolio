@@ -46,11 +46,23 @@ class ProjectController extends Controller
     {
         $this -> validate($request, [
             'judul' => 'required',
-            'deskripsi' => 'required'
+            'deskripsi' => 'required',
+            'picture' => 'image|nullable'
         ]);
         $project = new Project;
         $project->judul = $request->input('judul');
         $project->deskripsi = $request->input('deskripsi');
+        if ($request->hasFile('picture')){
+            $filenameWithExt = $request->file('picture')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('picture')->getClientOriginalExtension();
+            $filenameSimpan = $filename . '_' . time() . '.' . $extension;
+            $path = $request->file('picture')->storeAs('public/posts_image', $filenameSimpan);
+        }
+        else{
+            $filenameSimpan = 'noimage.png';
+        }
+        $project->picture = $filenameSimpan;
         $project->save();
 
         return redirect('project')->with ('success', 'Berhasil menambah data');

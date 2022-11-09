@@ -19,8 +19,9 @@
     <div class="row">
         @if(count($project)>0)
             @foreach ($project as $pro)
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <div class="card">
+                    <img src="{{asset('storage/posts_image/'.$pro->picture)}}" height="200" width="547">
                             <div class="card-body">
                                 <p class="card-title">{{$pro->judul}}</p>
                                 <p class="card-text">{{$pro->deskripsi}}</p>
