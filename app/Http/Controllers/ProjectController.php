@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Project;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+
 
 class ProjectController extends Controller
 {
@@ -108,10 +111,22 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Project::where('id', $request->id)->update([
-            'judul'=>$request->judul,
-            'deskripsi'=>$request->deskripsi
-        ]);
+        $project = Project::find($id);
+        $project->judul = $request->input('judul');
+        $project->deskripsi = $request->input('deskripsi');
+        if ($request->hasFile('picture')){
+            $filenameWithExt = $request->file('picture')->getClientOriginalName();
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            $extension = $request->file('picture')->getClientOriginalExtension();
+            $filenameSimpan = $filename . '_' . time() . '.' . $extension;
+            $path = $request->file('picture')->storeAs('public/posts_image', $filenameSimpan);
+        }
+        else{
+            $filenameSimpan = 'noimage.png';
+        }
+        $project->picture = $filenameSimpan;
+
+        $project->update();
         return redirect('project');
     }
 
