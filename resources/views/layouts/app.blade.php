@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="{{asset('lte/plugins/fontawesome-free/css/all.min.css')}}">
         <!-- Theme style -->
         <link rel="stylesheet" href="{{asset('lte/dist/css/adminlte.min.css')}}">
+        <link rel="stylesheet" href="{{asset('lightbox2-dev/dist/css/lightbox.min.css')}}">
     </head>
     <body>
         @include('layouts.header')
@@ -26,5 +27,8 @@
         <script src="{{asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
         <!-- AdminLTE App -->
         <script src="{{asset('lte/dist/js/adminlte.min.js')}}"></script>
+
+        <script src="{{asset('lightbox2-dev/dist/js/lightbox-plus-jquery.min.js')}}"></script>
+
     </body>
 <html>

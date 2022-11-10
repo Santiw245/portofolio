@@ -36,7 +36,7 @@ Route::resource('about',
 Route::get('/project/hapus/{id}', 
 [App\Http\Controllers\ProjectController::class, 'hapus']);
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('dashboard');
 
 Auth::routes([
     'reset' => true,
@@ -55,5 +55,6 @@ Route::get('/send-email',function(){
     dd("Email Berhasil dikirim.");
    });
 
-   Route::get('/send-email', [SendEmailController::class, 'index'])->name('kirim-email');
-   Route::post('/post-email', [SendEmailController::class, 'store'])->name('post-email');
+Route::get('/send-email', [SendEmailController::class, 'index'])->name('kirim-email');
+Route::post('/post-email', [SendEmailController::class, 'store'])->name('post-email');
+Route::resource('gallery', 'App\Http\Controllers\GalleryController');
