@@ -7,6 +7,7 @@ use App\Models\Project;
 
 class GalleryController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -19,7 +20,20 @@ class GalleryController extends Controller
             'menu' => 'Gallery',
             'galleries' => Project::where('picture', '!=', '')->whereNotNull('picture')->orderBy('created_at', 'desc')->paginate(30)
             );
+        // return view('gallery.index')->with($data);
+        return response()->json(['data' => $data]);
+           
+    }
+    
+    public function indexs()
+    {
+        $data = array(
+            'id' => "posts",
+            'menu' => 'Gallery',
+            'galleries' => Project::where('picture', '!=', '')->whereNotNull('picture')->orderBy('created_at', 'desc')->paginate(30)
+            );
         return view('gallery.index')->with($data);
+        // return response()->json(['data' => $data]);
            
     }
 
