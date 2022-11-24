@@ -32,11 +32,11 @@ class GalleryController extends Controller
             'menu' => 'Gallery',
             'galleries' => Project::where('picture', '!=', '')->whereNotNull('picture')->orderBy('created_at', 'desc')->paginate(30)
             );
-        return view('gallery.index')->with($data);
+        return view('gallery.index-api')->with($data);
         // return response()->json(['data' => $data]);
            
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *

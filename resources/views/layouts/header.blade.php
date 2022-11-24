@@ -37,6 +37,9 @@
         <li class="nav-item d-none d-sm-inline-block">
           <a class="nav-link" href="{{ url('/gallery') }}">Gallery</a>
         </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a class="nav-link" href="{{ url('/gallery2') }}">Gallery API</a>
+        </li>
       </ul>
 
       <!-- SEARCH FORM -->
